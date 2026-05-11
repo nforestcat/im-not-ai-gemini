@@ -28,6 +28,7 @@ G. 과도한 Hedging (완곡) — G-1~G-3
 H. 접속사 남발 — H-1~H-4
 I. 형식명사·의존명사 과다 — I-1~I-6
 J. 시각 장식 남용 — J-1~J-4
+K. 자기소개서 특화 패턴 (Self-Introduction Specifics) — S1~S2
 
 ---
 
