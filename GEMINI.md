@@ -23,6 +23,13 @@ im-not-ai-gemini/
 
 ## 에이전트 협업 파이프라인
 작업 요청 시 다음 순서에 따라 `.claude/agents/`의 지침을 참고하여 수행합니다.
+
+### 모델 및 에이전트 위임 규칙 (Delegation Strategy)
+- **지능 품질 보존**: 모든 윤문 및 탐지 작업은 미묘한 어감과 리듬 포착을 위해 반드시 **Pro급 모델**(`model: pro`)에서 수행되어야 한다.
+- **자동 위임 (Auto-Invoke)**: 현재 세션이 Flash 모델일 경우, 직접 작업을 수행하지 않고 `invoke_agent` 도구를 사용하여 Pro 세션을 생성한다.
+    - **Fast 모드**: `humanize-monolith.md` 지침과 함께 `generalist`를 호출하여 단일 세션으로 완결한다.
+    - **Strict 모드**: Phase A~C의 각 전문가 에이전트를 개별적으로 `invoke_agent`로 호출하여 독립된 Pro 세션 간 협업을 유도한다.
+
 1. **ai-tell-detector**: AI 패턴 탐지 (span·category·severity)
 2. **korean-style-rewriter**: 수술적 윤문 실행
 3. **content-fidelity-auditor** & **naturalness-reviewer**: 의미 보존 및 자연스러움 검증
