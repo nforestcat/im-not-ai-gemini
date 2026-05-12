@@ -27,6 +27,7 @@ im-not-ai-gemini/
 ### 모델 및 에이전트 위임 규칙 (Delegation Strategy)
 - **지능 품질 보존**: 모든 윤문 및 탐지 작업은 미묘한 어감과 리듬 포착을 위해 반드시 **Pro급 모델**(`model: pro`)에서 수행되어야 한다.
 - **자동 위임 (Auto-Invoke)**: 현재 세션이 Flash 모델일 경우, 직접 작업을 수행하지 않고 `invoke_agent` 도구를 사용하여 Pro 세션을 생성한다.
+- **물리 파일 생성 강제 (File Persistence)**: 위임받은 하위 에이전트는 반드시 `write_file` 도구를 사용하여 지정된 워크스페이스(`_workspace/[run_id]/`)에 `final.md`와 `summary.md`를 물리적으로 생성해야 한다. 단순히 텍스트로만 반환하지 않는다.
     - **Fast 모드**: `humanize-monolith.md` 지침과 함께 `generalist`를 호출하여 단일 세션으로 완결한다.
     - **Strict 모드**: Phase A~C의 각 전문가 에이전트를 개별적으로 `invoke_agent`로 호출하여 독립된 Pro 세션 간 협업을 유도한다.
 
